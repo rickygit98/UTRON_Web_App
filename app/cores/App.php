@@ -2,10 +2,51 @@
 
 class App{
 
+    // Default Parameter
+
+    protected $controller = 'Home';
+    protected $method = 'index';
+    protected $parameter = [];
+
+
     public function __construct()
     {
         $url = $this->parseURL();
-        var_dump($url);
+        
+        //Controller
+        //Make sure the controller file is exist on controller folder
+        //Check if any controller in URL , if not use default controller home
+        if($url == NULL)
+               {
+			$url = [$this->controller];
+		}
+
+        if(file_exists('../app/controllers/'.$url[0].'.php')){
+            $this->controller = $url[0];
+            unset($url[0]);
+            // var_dump($url);
+        }
+
+        require_once '../app/controllers/'.$this->controller.'.php';
+        $this->controller = new $this->controller;
+
+        //Method
+        //Make sure the method is exist on following controller
+        if(isset($url[1])){
+            if(method_exists($this->controller,$url[1])){
+                $this->method = $url[1];
+                unset($url[1]);
+            }
+        }
+
+        // Parameters
+        if(!empty($url)){
+            // var_dump($url);
+            $this->parameter = array_values($url);
+        }
+
+        // Run Controller , Method, and include parameter
+        call_user_func_array([$this->controller,$this->method],$this->parameter);
     }
 
     public function parseURL(){
@@ -18,7 +59,7 @@ class App{
 
             // Explode URL based on slash delimiter , String to Array
             $url = explode('/',$url);
-            
+
             return $url;
         }
     }
