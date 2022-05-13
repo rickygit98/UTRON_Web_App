@@ -26,13 +26,13 @@ class App{
 			$url = [$this->controller];
 		}
 
-        if(file_exists('../app/controllers/'.$url[0].'.php')){
+        if(file_exists('../app/controllers/'.$url[0].'_controller.php')){
             $this->controller = $url[0];
             unset($url[0]);
             // var_dump($url);
         }
 
-        require_once '../app/controllers/'.$this->controller.'.php';
+        require_once '../app/controllers/'.$this->controller.'_controller.php';
         $this->controller = new $this->controller;
 
         //METHOD
