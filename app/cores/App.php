@@ -27,12 +27,12 @@ class App{
 		}
 
         if(file_exists('../app/controllers/'.$url[0].'_controller.php')){
-            $this->controller = $url[0];
+            $this->controller = $url[0].'_controller';
             unset($url[0]);
             // var_dump($url);
         }
 
-        require_once '../app/controllers/'.$this->controller.'_controller.php';
+        require_once '../app/controllers/'.$this->controller.'.php';
         $this->controller = new $this->controller;
 
         //METHOD

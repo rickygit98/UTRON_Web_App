@@ -1,5 +1,5 @@
 <?php 
-class About extends Controller{
+class About_controller extends Controller{
     public function index($name = 'Human',$job='Rule The World',$age='Infinite'){
         $data = [
             'title'=>'About',

@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Controller {
+class home_controller extends Controller {
     
     public function index(){
         $data = [
