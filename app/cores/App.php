@@ -13,7 +13,12 @@ class App{
     {
         $url = $this->parseURL();
         
-        //Controller
+        // Trivia
+        // $url[0] -> must be Controller Name
+        // $url[1] -> must be Method in Controller
+        // $url[2, 3, 4, etc] -> optional , if exist , must be parameter
+
+        //CONTROLLER
         //Make sure the controller file is exist on controller folder
         //Check if any controller in URL , if not use default controller home
         if($url == NULL)
@@ -30,7 +35,7 @@ class App{
         require_once '../app/controllers/'.$this->controller.'.php';
         $this->controller = new $this->controller;
 
-        //Method
+        //METHOD
         //Make sure the method is exist on following controller
         if(isset($url[1])){
             if(method_exists($this->controller,$url[1])){
