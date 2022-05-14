@@ -1,23 +1,22 @@
 <?php 
     class Mahasiswa {
-        private $dbh; //databaseHandler
-        private $stmt; //statementQuery
+        private $table = 'mahasiswa';
+        private $db;
 
         public function __construct()
         {
-            $dsn = 'mysql:host=localhost;dbname=utron_db';
-
-            try{
-                $this->dbh = new PDO($dsn,'root','');
-            }catch(PDOException $e){
-                die($e->getMessage());
-            }
+            $this->db = new Database;
         }
 
         public function getAllMahasiswa(){
-            $this->stmt = $this->dbh->prepare('SELECT * FROM mahasiswa');
-            $this->stmt->execute();
-            return $this->stmt->fetchAll(PDO::FETCH_ASSOC); 
+            $this->db->query('SELECT * FROM '.$this->table);
+            return $this->db->get();
+        }
+
+        public function show($id){
+            $this->db->query('SELECT * FROM '.$this->table.' WHERE id = :id');
+            $this->db->binding('id',$id);
+            return $this->db->first();
         }
     }
 ?>
