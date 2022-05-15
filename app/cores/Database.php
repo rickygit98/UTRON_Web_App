@@ -59,6 +59,11 @@ class Database
     $this->stmt->execute();
   }
 
+  public function row_affect()
+  {
+    return $this->stmt->rowCount();
+  }
+
   public function get()
   {
     $this->execute();
