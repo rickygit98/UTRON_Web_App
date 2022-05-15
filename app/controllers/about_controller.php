@@ -2,24 +2,19 @@
 class About_controller extends Controller
 {
   public function index(
-    $name = "Human",
-    $job = "Rule The World",
-    $age = "Infinite"
+    $name = "Ricky",
+    $job = "Student",
+    $university = "Widya Kartika University",
+    $department = "Informatics Engineering"
   ) {
     $data = [
-      "title" => "About",
+      "title" => "About Me",
       "name" => $name,
       "job" => $job,
-      "age" => $age,
+      "university" => $university,
+      "department" => $department,
     ];
     $this->view("about/index", $data);
-  }
-  public function page()
-  {
-    $data = [
-      "title" => "Page",
-    ];
-    $this->view("about/page", $data);
   }
 }
 ?>

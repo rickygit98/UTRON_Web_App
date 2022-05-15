@@ -1,7 +1,7 @@
 <?php
-class Mahasiswa
+class Peserta
 {
-  private $table = "mahasiswa";
+  private $table = "peserta";
   private $db;
 
   public function __construct()
@@ -9,7 +9,7 @@ class Mahasiswa
     $this->db = new Database();
   }
 
-  public function getAllMahasiswa()
+  public function getAllPeserta()
   {
     $this->db->query("SELECT * FROM " . $this->table);
     return $this->db->get();
@@ -24,7 +24,7 @@ class Mahasiswa
 
   public function add($data)
   {
-    $query = "INSERT INTO mahasiswa
+    $query = "INSERT INTO peserta
               VALUES
               ('',:nama,:nrp,:email,:jurusan)";
 

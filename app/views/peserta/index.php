@@ -1,17 +1,17 @@
 <div class="row">
     <div class="col-6">
-        <h1>Data Mahasiswa</h1>
+        <h1>Daftar Peserta</h1>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertModal">
-        Add New Student
+        Tambahkan Peserta
         </button>
 
         <ul class="list-group mt-3">
-            <?php foreach ($data["mahasiswa"] as $mhs): ?>
+            <?php foreach ($data["peserta"] as $pst): ?>
                 <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <?= $mhs["nama"] ?>
-                    <a href="<?= BASEURL ?>/mahasiswa/show/<?= $mhs["id"] ?>">
+                    <?= $pst["nama"] ?>
+                    <a href="<?= BASEURL ?>/peserta/show/<?= $pst["id"] ?>">
                     <span class="badge bg-primary">Detail</span>
                     </a>
                 </li>
@@ -26,11 +26,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="insertModal">Add New Student</h5>
+        <h5 class="modal-title" id="insertModal">Tambahkan Peserta Baru</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="<?= BASEURL ?>/mahasiswa/add" method="post">
+      <form action="<?= BASEURL ?>/peserta/add" method="post">
 
       <div class="modal-body">
     

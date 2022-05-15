@@ -1,2 +1,2 @@
-<h1>Selamat Datang di Home</h1>
-<p>Main Page</p>
+<h1>Selamat Datang di Website UTRON Online</h1>
+<p>Ini adalah Halaman Utama</p>
