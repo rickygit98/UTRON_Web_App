@@ -1,5 +1,11 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-lg-6">
+        <?php Messages::messages(); ?>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
         <h1>Daftar Peserta</h1>
 
         <!-- Button trigger modal -->

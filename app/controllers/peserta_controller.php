@@ -1,5 +1,5 @@
 <?php
-class Peserta_controller extends Controller
+class peserta_controller extends Controller
 {
   public function index()
   {
@@ -20,8 +20,16 @@ class Peserta_controller extends Controller
   public function add()
   {
     if ($this->model("Peserta")->add($_POST) > 0) {
-      header("Location: " . BASEURL . "/peserta");
-      exit();
+        // Set session if success
+        Messages::setMessages('berhasil','ditambahkan','success');
+        header("Location: " . BASEURL . "/peserta");
+        exit;
+      
+    }else{
+        // Set session if success
+        Messages::setMessages('gagal','ditambahkan','danger');
+        header("Location: " . BASEURL . "/peserta");
+        exit;
     }
   }
 }

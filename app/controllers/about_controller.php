@@ -1,5 +1,5 @@
 <?php
-class About_controller extends Controller
+class about_controller extends Controller
 {
   public function index(
     $name = "Ricky",
