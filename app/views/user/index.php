@@ -6,19 +6,27 @@
 
 <div class="row">
     <div class="col-lg-6">
-        <h1>Daftar Peserta</h1>
+        <h1>Daftar Antrian</h1>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#insertModal">
-        Tambahkan Peserta
+        Daftar Sekarang
         </button>
 
         <ul class="list-group mt-3">
-            <?php foreach ($data["peserta"] as $pst): ?>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <?= $pst["nama"] ?>
-                    <a href="<?= BASEURL ?>/peserta/show/<?= $pst["id"] ?>">
-                    <span class="badge bg-primary">Detail</span>
+            <?php foreach ($data["user"] as $user): ?>
+                <li class="list-group-item">
+                    <?= $user["nama"] ?>
+
+                    <!-- Details -->
+                    <a href="<?= BASEURL ?>/user/show/<?= $user["id"] ?>" class="badge bg-primary float-right"> 
+                    Detail
+                    </a>
+
+                    <!-- Delete -->
+                    <a href="<?= BASEURL ?>/user/delete/<?= $user["id"] ?>" class="badge bg-danger float-right"
+                    onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
+                    Delete
                     </a>
                 </li>
             <?php endforeach; ?>
@@ -32,11 +40,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="insertModal">Tambahkan Peserta Baru</h5>
+        <h5 class="modal-title" id="insertModal">Daftar Baru</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="<?= BASEURL ?>/peserta/add" method="post">
+      <form action="<?= BASEURL ?>/user/add" method="post">
 
       <div class="modal-body">
     
@@ -50,13 +58,23 @@
             </div>
         </div>
 
-      <!-- NRP -->
+      <!-- nik -->
         <div class="row g-3 align-items-left mb-3">
             <div class="col-4">
-                <label for="nrp" class="col-form-label">NRP : </label>
+                <label for="nik" class="col-form-label">NIK : </label>
             </div>
             <div class="col-8">
-                <input type="text" id="nrp" name='nrp' class="form-control" maxlength="8" required>
+                <input type="text" id="nik" name='nik' class="form-control" maxlength="12" required>
+            </div>
+        </div>
+
+      <!-- Alamat -->
+        <div class="row g-3 align-items-left mb-3">
+            <div class="col-4">
+                <label for="alamat" class="col-form-label">Alamat : </label>
+            </div>
+            <div class="col-8">
+                <input type="text" id="alamat" name='alamat' class="form-control" required>
             </div>
         </div>
 
@@ -70,13 +88,13 @@
               </div>
           </div>
 
-      <!-- Jurusan -->
+      <!-- Password -->
         <div class="row g-3 align-items-left mb-3">
             <div class="col-4">
-                <label for="jurusan" class="col-form-label">Jurusan : </label>
+                <label for="password" class="col-form-label">Password : </label>
             </div>
             <div class="col-8">
-                <input type="text" id="jurusan" name='jurusan' class="form-control" required>
+                <input type="password" id="password" name='password' class="form-control" required>
             </div>
         </div>
 
