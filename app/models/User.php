@@ -47,8 +47,33 @@ class User
     $this->db->binding('id',$id);
 
     $this->db->execute();
-    
+
     return $this->db->row_affect();
   }
+
+  public function update($data)
+  {
+    $query = "UPDATE user SET
+              nama = :nama,
+              nik = :nik,
+              alamat = :alamat,
+              email = :email,
+              password = :password
+              WHERE id = :id
+              ";
+
+    $this->db->query($query);
+    $this->db->binding("id", $data["id"]);
+    $this->db->binding("nama", $data["nama"]);
+    $this->db->binding("nik", $data["nik"]);
+    $this->db->binding("alamat", $data["alamat"]);
+    $this->db->binding("email", $data["email"]);
+    $this->db->binding("password", $data["password"]);
+
+    $this->db->execute();
+
+    return $this->db->row_affect();
+  }
+
 }
 ?>
