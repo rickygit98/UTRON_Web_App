@@ -26,14 +26,15 @@ class User
   {
     $query = "INSERT INTO user
               VALUES
-              ('',:nama,:nik,:alamat,:email,:password)";
+              ('',:nama,:nik,:jk,:tgl_lahir,:alamat,:no_telp)";
 
     $this->db->query($query);
     $this->db->binding("nama", $data["nama"]);
     $this->db->binding("nik", $data["nik"]);
+    $this->db->binding("jk", $data["jk"]);
+    $this->db->binding("tgl_lahir", $data["tgl_lahir"]);
     $this->db->binding("alamat", $data["alamat"]);
-    $this->db->binding("email", $data["email"]);
-    $this->db->binding("password", $data["password"]);
+    $this->db->binding("no_telp", $data["no_telp"]);
 
     $this->db->execute();
 
@@ -56,19 +57,20 @@ class User
     $query = "UPDATE user SET
               nama = :nama,
               nik = :nik,
+              jenis_kelamin = :jk,
+              tgl_lahir = :tgl_lahir,
               alamat = :alamat,
-              email = :email,
-              password = :password
-              WHERE id = :id
-              ";
+              no_telp = :no_telp
+              WHERE id=:id";
 
     $this->db->query($query);
-    $this->db->binding("id", $data["id"]);
     $this->db->binding("nama", $data["nama"]);
     $this->db->binding("nik", $data["nik"]);
+    $this->db->binding("jk", $data["jk"]);
+    $this->db->binding("tgl_lahir", $data["tgl_lahir"]);
     $this->db->binding("alamat", $data["alamat"]);
-    $this->db->binding("email", $data["email"]);
-    $this->db->binding("password", $data["password"]);
+    $this->db->binding("no_telp", $data["no_telp"]);
+    $this->db->binding("id", $data["id"]);
 
     $this->db->execute();
 

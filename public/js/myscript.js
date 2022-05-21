@@ -10,8 +10,10 @@ $(function(){
         $('#id').val("");
         $('#nama').val("");
         $('#nik').val("");
+        $('#jk').val("null");
+        $('#tgl_lahir').val("");
         $('#alamat').val("");
-        $('#email').val("");
+        $('#no_telp').val("");
     });
     
     $('.btnModalUpdate').on('click',function(){
@@ -32,9 +34,10 @@ $(function(){
                 $('#id').val(data.id);
                 $('#nama').val(data.nama);
                 $('#nik').val(data.nik);
+                $('#jk').val(data.jenis_kelamin);
+                $('#tgl_lahir').val(data.tgl_lahir);
                 $('#alamat').val(data.alamat);
-                $('#email').val(data.email);
-                $('#password').val(data.password);
+                $('#no_telp').val(data.no_telp);
             }
         });
 

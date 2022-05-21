@@ -5,6 +5,7 @@ class user_controller extends Controller
   {
     $data = [
       "user" => $this->model("User")->getAlluser(),
+      "title"=> "Daftar Antrian",
     ];
     $this->view("user/index", $data);
   }
@@ -19,6 +20,7 @@ class user_controller extends Controller
 
   public function add()
   {
+    
     if ($this->model("User")->add($_POST) > 0) {
         // Set session if success
         Messages::setMessages('berhasil','ditambahkan','success');
@@ -54,6 +56,7 @@ class user_controller extends Controller
   }
 
   public function update(){
+
     if ($this->model("User")->update($_POST) > 0) {
       // Set session if success
       Messages::setMessages('berhasil','diubah','success');

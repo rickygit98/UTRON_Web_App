@@ -54,6 +54,8 @@
       
       <form action="<?= BASEURL ?>/user/add" method="post">
       <div class="modal-body">
+
+        <!-- hidden ID -->
             <input type="hidden" name="id" id="id">
         <!-- Nama -->
             <div class="row g-3 align-items-left mb-3">
@@ -66,12 +68,37 @@
             </div>
 
         <!-- nik -->
-            <div class="row g-3 align-items-left mb-3">
+            <div class="row g-3 align-items-left mb-3 d-flex">
                 <div class="col-4">
                     <label for="nik" class="col-form-label">NIK : </label>
                 </div>
                 <div class="col-8">
-                    <input type="text" id="nik" name='nik' class="form-control" maxlength="12" required>
+                    <input type="text" id="nik" name='nik' class="form-control" maxlength="16" required>
+                </div>
+            </div>
+            
+        <!-- jenis kelamin -->
+            <div class="row g-3 align-items-left mb-3 d-flex">
+                <div class="col-4">
+                    <label class="col-form-label">Jenis Kelamin : </label>
+                </div>
+                <div class="col-8">
+                    <select class="form-select" aria-label="Default select example" id="jk" name="jk" required>
+                        <option value="null" disabled selected>---Specify your gender---</option>
+                        <option value="Pria">Pria</option>
+                        <option value="Wanita">Wanita</option>
+                    </select>
+                </div>
+           
+            </div>
+                    
+        <!-- Tanggal Lahir -->
+            <div class="row g-3 align-items-left mb-3">
+                <div class="col-4">
+                    <label for="tgl_lahir">Tanggal Lahir :</label>
+                </div>
+                <div class="col-8">
+                    <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control" required>
                 </div>
             </div>
 
@@ -84,27 +111,16 @@
                     <input type="text" id="alamat" name='alamat' class="form-control" required>
                 </div>
             </div>
-
-            <!-- Email -->
+        
+        <!-- No Telepon -->
             <div class="row g-3 align-items-left mb-3">
                 <div class="col-4">
-                    <label for="email" class="col-form-label">Email : </label>
+                    <label for="no_telp" class="col-form-label">No. Telepon: </label>
                 </div>
                 <div class="col-8">
-                    <input type="email" id="email" name='email' class="form-control" required>
+                    <input type="text" id="no_telp" name="no_telp" class="form-control" required>
                 </div>
             </div>
-
-        <!-- Password -->
-            <div class="row g-3 align-items-left mb-3">
-                <div class="col-4">
-                    <label for="password" class="col-form-label">Password : </label>
-                </div>
-                <div class="col-8">
-                    <input type="password" id="password" name='password' class="form-control" required>
-                </div>
-            </div>
-
 
         </div>
 
