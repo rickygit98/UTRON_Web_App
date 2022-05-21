@@ -77,5 +77,14 @@ class User
     return $this->db->row_affect();
   }
 
+  public function search(){
+    $keyword = $_POST['keyword'];
+    $query = "SELECT * FROM user WHERE nama LIKE :keyword";
+
+    $this->db->query($query);
+    $this->db->binding('keyword',"%$keyword%");
+
+    return $this->db->get();
+  }
 }
 ?>

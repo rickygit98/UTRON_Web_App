@@ -4,37 +4,59 @@
     </div>
 </div>
 
+<!-- Button trigger modal -->
+<div class="row">
+    <div class="col-lg-6">
+        <button type="button" class="btn btn-primary btnModalAdd mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
+        Daftar Sekarang
+        </button>
+    </div>
+</div>
+
+<!-- Searching Input -->
+<div class="row">
+    <div class="col-lg-6">
+        <form action="<?php echo BASEURL; ?>/user/search" method="post">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Type your keyword ..." aria-label="Recipient's username" aria-describedby="button-addon2"
+                id="keyword" name="keyword" autocomplete="off">
+                <button class="btn btn-primary" type="submit" id="btnSearch" name="btnSearch">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
 <div class="row">
     <div class="col-lg-6">
         <h1>Daftar Antrian</h1>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btnModalAdd" data-bs-toggle="modal" data-bs-target="#formModal">
-        Daftar Sekarang
-        </button>
-
-        <ul class="list-group mt-3">
+        <ul class="list-group mt-3 d-flex">
             <?php foreach ($data["user"] as $user): ?>
                 <li class="list-group-item">
-                    <?= $user["nama"] ?>
-
-                    <!-- Details -->
-                    <a href="<?= BASEURL ?>/user/show/<?= $user["id"] ?>" class="badge bg-primary float-right"> 
-                    Detail
-                    </a>
+                    <?= $user["nama"] ?> - <?= $user["nik"]; ?>
+                <div class="float-end">
                     
+                    <!-- Details -->
+                    <a href="<?= BASEURL ?>/user/show/<?= $user["id"] ?>" class="badge bg-primary"> 
+                        Detail
+                    </a>
+                                    
                     <!-- Update -->
-                    <a href="<?= BASEURL ?>/user/update/" class="badge bg-warning float-right btnModalUpdate"
+                    <a href="<?= BASEURL ?>/user/update/" class="badge bg-warning btnModalUpdate"
                     data-bs-toggle="modal" data-bs-target="#formModal"
                     data-id="<?php echo $user['id'] ?>"> 
                     Update
                     </a>
 
                     <!-- Delete -->
-                    <a href="<?= BASEURL ?>/user/delete/<?= $user["id"] ?>" class="badge bg-danger float-right"
+                    <a href="<?= BASEURL ?>/user/delete/<?= $user["id"] ?>" class="badge bg-danger"
                     onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
                     Delete
                     </a>
+                </div>
+
                 </li>
             <?php endforeach; ?>
         </ul>

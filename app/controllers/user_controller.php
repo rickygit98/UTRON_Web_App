@@ -63,12 +63,20 @@ class user_controller extends Controller
       header("Location: " . BASEURL . "/user");
       exit;
     
-  }else{
-      // Set session if success
-      Messages::setMessages('gagal','diubah','danger');
-      header("Location: " . BASEURL . "/user");
-      exit;
+    }else{
+        // Set session if success
+        Messages::setMessages('gagal','diubah','danger');
+        header("Location: " . BASEURL . "/user");
+        exit;
+    }
   }
+
+  public function search(){
+    $data = [
+      "user" => $this->model("User")->search(),
+      "title"=> "Daftar Antrian",
+    ];
+    $this->view("user/index", $data);
   }
 }
 ?>
