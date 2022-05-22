@@ -4,7 +4,7 @@ class App
 {
   // Default Parameter
 
-  protected $controller = "Home";
+  protected $controller = "home";
   protected $method = "index";
   protected $parameter = [];
 

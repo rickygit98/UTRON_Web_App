@@ -24,8 +24,7 @@ class User
 
   public function add($data)
   {
-    $query = "INSERT INTO user
-              VALUES
+    $query = "INSERT INTO " . $this->table . " VALUES
               ('',:nama,:nik,:jk,:tgl_lahir,:alamat,:no_telp)";
 
     $this->db->query($query);

@@ -39,19 +39,19 @@
                 <div class="float-end">
                     
                     <!-- Details -->
-                    <a href="<?= BASEURL ?>/user/show/<?= $user["id"] ?>" class="badge bg-primary"> 
+                    <a href="<?= BASEURL; ?>/user/show/<?= $user["id"] ?>" class="badge bg-primary"> 
                         Detail
                     </a>
                                     
                     <!-- Update -->
-                    <a href="<?= BASEURL ?>/user/update/" class="badge bg-warning btnModalUpdate"
+                    <a href="<?= BASEURL; ?>/user/update/" class="badge bg-warning btnModalUpdate"
                     data-bs-toggle="modal" data-bs-target="#formModal"
                     data-id="<?php echo $user['id'] ?>"> 
                     Update
                     </a>
 
                     <!-- Delete -->
-                    <a href="<?= BASEURL ?>/user/delete/<?= $user["id"] ?>" class="badge bg-danger"
+                    <a href="<?= BASEURL; ?>/user/delete/<?= $user["id"] ?>" class="badge bg-danger"
                     onclick="return confirm('Apakah anda yakin ingin menghapus data?');">
                     Delete
                     </a>
@@ -74,7 +74,7 @@
       </div>
 
       
-      <form action="<?= BASEURL ?>/user/add" method="post">
+      <form action="<?= BASEURL; ?>/user/add" method="post">
       <div class="modal-body">
 
         <!-- hidden ID -->
@@ -120,7 +120,7 @@
                     <label for="tgl_lahir">Tanggal Lahir :</label>
                 </div>
                 <div class="col-8">
-                    <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control" required>
+                    <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" required>
                 </div>
             </div>
 
