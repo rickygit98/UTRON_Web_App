@@ -10,9 +10,10 @@ class home_controller extends Controller
 
     // Enable this view for template if you want to setting each controller, but don't forget to disable require_once in cores/Controller files
 
-    // $this->view('layouts/header',$data);
+    $this->view('layouts/navbar',$data);
+    $this->view('layouts/header',$data);
     $this->view("home/index", $data);
-    // $this->view('layouts/footer');
+    $this->view('layouts/footer');
   }
 }
 

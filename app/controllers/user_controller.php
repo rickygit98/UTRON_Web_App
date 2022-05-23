@@ -7,7 +7,11 @@ class user_controller extends Controller
       "user" => $this->model("User")->getAlluser(),
       "title"=> "Daftar Antrian",
     ];
+    
+    $this->view('layouts/navbar',$data);
+    $this->view('layouts/header',$data);
     $this->view("user/index", $data);
+    $this->view('layouts/footer');
   }
 
   public function show($id)
@@ -15,7 +19,11 @@ class user_controller extends Controller
     $data = [
       "user" => $this->model("User")->show($id),
     ];
+    
+    $this->view('layouts/navbar',$data);
+    $this->view('layouts/header',$data);
     $this->view("user/detail", $data);
+    $this->view('layouts/footer');
   }
 
   public function add()
@@ -28,7 +36,7 @@ class user_controller extends Controller
         exit;
       
     }else{
-        // Set session if success
+        // Set session if failed
         Messages::setMessages('gagal','ditambahkan','danger');
         header("Location: " . BASEURL . "/user");
         exit;
@@ -44,7 +52,7 @@ class user_controller extends Controller
         exit;
       
     }else{
-        // Set session if success
+        // Set session if failed
         Messages::setMessages('gagal','dihapus','danger');
         header("Location: " . BASEURL . "/user");
         exit;
@@ -64,7 +72,7 @@ class user_controller extends Controller
       exit;
     
     }else{
-        // Set session if success
+        // Set session if failed
         Messages::setMessages('gagal','diubah','danger');
         header("Location: " . BASEURL . "/user");
         exit;

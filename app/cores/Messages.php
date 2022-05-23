@@ -10,6 +10,15 @@ class Messages
     ];
   }
 
+  public static function setAuthMessages($messages, $action, $type)
+  {
+    $_SESSION["auth_messages"] = [
+      "messages" => $messages,
+      "action" => $action,
+      "type" => $type,
+    ];
+  }
+
   public static function messages()
   {
     if (isset($_SESSION["messages"])) {
@@ -28,5 +37,25 @@ class Messages
       unset($_SESSION["messages"]);
     }
   }
+
+  public static function auth_messages()
+  {
+    if (isset($_SESSION["auth_messages"])) {
+      echo '
+            <div class="alert alert-' .
+        $_SESSION["auth_messages"]["type"] .
+        ' alert-dismissible fade show" role="alert">
+            Anda 
+            <strong>' .
+        $_SESSION["auth_messages"]["messages"] .
+        "</strong> " .
+        $_SESSION["auth_messages"]["action"] .
+        '
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+      unset($_SESSION["auth_messages"]);
+    }
+  }
+
 }
 ?>

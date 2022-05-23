@@ -14,7 +14,11 @@ class about_controller extends Controller
       "university" => $university,
       "department" => $department,
     ];
+
+    $this->view('layouts/navbar',$data);
+    $this->view('layouts/header',$data);
     $this->view("about/index", $data);
+    $this->view('layouts/footer');
   }
 }
 ?>
