@@ -54,6 +54,7 @@ class auth_controller extends Controller
     if ($this->model("User")->login($_POST) > 0) {
         // Set session if success
         Messages::setAuthMessages('berhasil','login','success');
+
         header("Location: " . BASEURL . "/home/index");
         exit;
       

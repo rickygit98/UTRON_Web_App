@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo BASEURL; ?>/about">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?php echo BASEURL; ?>/upload">Upload Foto</a>
+        </li>
       </ul>
     </div>
   </div>
